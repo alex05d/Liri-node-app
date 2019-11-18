@@ -96,17 +96,16 @@ function movieThis() {
     var divider = "\n------------------------------" + userQuery + "------------------------------\n\n";
 
     var URL = "http://www.omdbapi.com/?t=" + userQuery + "&y=&plot=short&apikey=trilogy";
-    console.log(URL);
-    console.log(userQuery);
 
     axios.get(URL).then(function (response) {
         var jsonData = response.data;
 
+        console.log(jsonData.Ratings[1].Value);
         var movieData = [
             "Title: " + jsonData.Title,
             "Year: " + jsonData.Year,
-            // "IMDB Rating: " + jsonData.rating.ratings[3],
-            // "Rotten tomatoes Rating: " + jsonData.ratings[1],
+            "IMDB Rating: " + jsonData.Ratings[0].Value,
+            "Rotten tomatoes Rating: " + jsonData.Ratings[1].Value,
             "Country Produced: " + jsonData.Country,
             "Language: " + jsonData.Language,
             "Plot: " + jsonData.Plot,
