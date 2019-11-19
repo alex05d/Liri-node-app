@@ -24,7 +24,7 @@ function userCommand(command, userQuery) {
         case "concert-this":
             concertThis();
             break;
-        case "spotify-this":
+        case "spotify-this-song":
             spotifyThis();
             break;
         case "movie-this":
@@ -40,7 +40,6 @@ function userCommand(command, userQuery) {
 }
 userCommand(command, userQuery);
 
-// create fucntions for switch
 
 function concertThis() {
     var URL = "https://rest.bandsintown.com/artists/" + userQuery + "/events?app_id=codingbootcamp";
@@ -87,7 +86,7 @@ function spotifyThis() {
     })
 };
 
-//is working but....need to fix the ratings//
+
 function movieThis() {
     if (!userQuery) {
         userQuery = "mr nobody";
